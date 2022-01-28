@@ -9,7 +9,8 @@ jobs:
       - name: Update PR Label
         uses: ssc-dsai/pr-labeler-action@main
         with:
-          github-token: ${{ secrets.MODEL_NAME }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-name:  github.repo.name
           pull-request-id: github.event.pull_request.number
           command: "ADD"
           label-name: "Full Test Pending"
