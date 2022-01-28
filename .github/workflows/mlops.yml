@@ -14,7 +14,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repo-name:  ${{ github.repository }}
-          pull-request-id: "${{ github.event.number }}"
+          pull-request-id: "${{ github.event.issue.number }}"
           command: "ADD"
           label-name: "Full Test Pending"
           label-colour: "e7f74f"
