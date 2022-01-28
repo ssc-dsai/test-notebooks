@@ -8,13 +8,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
+
       - name: Update PR Label
         uses: ssc-dsai/pr-labeler-action@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-name:  github.repo.name
-          pull-request-id: github.event.pull_request.number
+          repo-name:  ${{ github.repo.name }}
+          pull-request-id: ${{ github.event.pull_request.number }}
           command: "ADD"
           label-name: "Full Test Pending"
           label-colour: "e7f74f"
