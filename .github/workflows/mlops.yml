@@ -13,8 +13,8 @@ jobs:
         uses: ssc-dsai/pr-labeler-action@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-name:  "${{ github.event.organization.name }}/${{ github.event.repository.name }}"
-          pull-request-id: ${{ github.event.pull_request.number }}"
+          repo-name:  ${{ github.repository }}
+          pull-request-id: ${{ github.event.number }}
           command: "ADD"
           label-name: "Full Test Pending"
           label-colour: "e7f74f"
