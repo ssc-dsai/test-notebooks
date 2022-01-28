@@ -1,0 +1,16 @@
+name: MLOps actions
+on: [issue_comment]
+
+jobs:
+  full-test-run:
+    if: github.event.issue.pull_request != null &&  contains(github.event.comment.body, '/run-full-test') && (github.actor == 'pascal-beaulne')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update PR Label
+        uses: ssc-dsai/pr-labeler-action@main
+        with:
+          github-token: ${{ secrets.MODEL_NAME }}
+          pull-request-id: github.event.pull_request.number
+          command: "ADD"
+          label-name: "Full Test Pending"
+          label-colour: "e7f74f"
